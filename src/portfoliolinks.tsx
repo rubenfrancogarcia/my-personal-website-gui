@@ -67,6 +67,30 @@ const link4 = {
 	url: "https://leetcode.com/u/rubens1729/",
 }
 
+const nucleos = {
+	id: 5,
+	name: "Nucleos",
+	url: "https://www.nucleos.com/about/our-story",
+}
+
+const vps = {
+	id: 5,
+	name: "Verizon Partner Solutions",
+	url: "https://www.verizon.com/business/verizonpartnersolutions/",
+}
+
+const cccd = { 
+	id: 6,
+	name: "California Cooperative Development Center",
+	url: "https://www.cccd.edu/",
+}
+
+const calendy = { 
+	id: 7,
+	name: "Interested? Schedule a meeting and tell me more about inquire",
+	url: "https://www.cccd.edu/",
+}
+
 const links: Link[] = [link1, link2, link3, link4]
 
 interface Project {
