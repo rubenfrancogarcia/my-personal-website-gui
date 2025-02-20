@@ -1,3 +1,4 @@
+import React, { useEffect } from "react"
 import { FaJava, FaLinkedin } from "react-icons/fa"
 import {
 	SiSpring,
@@ -8,6 +9,7 @@ import {
 	SiAngular,
 	SiAmazonwebservices,
 } from "react-icons/si"
+import Markdown from "react-markdown"
 
 export const iconMap = {
 	java: FaJava,
@@ -79,13 +81,13 @@ const vps = {
 	url: "https://www.verizon.com/business/verizonpartnersolutions/",
 }
 
-const cccd = { 
+const cccd = {
 	id: 6,
 	name: "California Cooperative Development Center",
 	url: "https://www.cccd.edu/",
 }
 
-const calendy = { 
+const calendy = {
 	id: 7,
 	name: "Interested? Schedule a meeting and tell me more about inquire",
 	url: "https://www.cccd.edu/",
@@ -167,14 +169,41 @@ export const PortfolioProjects = () => {
 	)
 }
 
+export const MarkdownLoader: React.FC = () => {
+	const [markdown, setMarkdown] = React.useState<string | null>("Loading...")
+	useEffect(() => {
+		const loadMarkdown = async () => {
+			try {
+				const response = await fetch("/aboutme.md")
+				const text = await response.text()
+				setMarkdown(text)
+			} catch (error) {
+				setMarkdown("Error loading markdown")
+			}
+		}
+		loadMarkdown()
+	}, [])
+	return (
+		<pre
+			style={{
+				maxWidth: "100vw",
+				whiteSpace: "pre-wrap",
+			}}
+		>
+			<Markdown>{markdown}</Markdown>
+		</pre>
+	)
+}
+
 export const AboutMe = () => {
 	return (
 		<div className="about-me">
 			<h3>About Me</h3>
-			<p>
-			Hi Welcome to my site. 
-			I'm a software developer. I'm seeking a new role where I can lead a team where I can take ownership of business outcomes using my technical expertise and experience. I have over 3.5 years in enterprise systems in the b2b telecommunications industry. I am a technology consultant and have been exclusively on a account in Verizon Partner Solutions (VPS). I have been on multiple teams across different domains within VPS as a full-stack developer. I worked closely with Verizon engineers in their migration away from vendor technology to an in-house microservice architecture utlizing a Java/Angular/Oracle DB tech stack which is projected to be saving $4 million annually. The system is in the mature phase so   Previously, I have worked for Nucleos,a for-profit public benefit company in the education-tech industry. It was a startup during the early phase, and the experience was invaluable in the lessons learned in how a start-up works,testing, embracing many roles, and working with a team. Lastly, I worked for the California Cooperative Development Center, a comunnity-driven nonprofit, in web development. There I had many roles including user research, design, and development of a new initiative in a Homecare Coop. It was my first experience in web development and an invaluable experience on my software engineering journey. 
-			</p>
+			<div>
+				<MarkdownLoader />
+			</div>
 		</div>
 	)
 }
+
+//https://www.npmjs.com/package/react-markdown?activeTab=readme   https://github.com/remarkjs/react-markdown
