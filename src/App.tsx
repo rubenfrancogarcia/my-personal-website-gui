@@ -1,17 +1,39 @@
 import './App.css'
-import { PortfolioProjects, AboutMe, HeaderShot, Header, Footer } from './components'
+import { AboutMe, PortfolioProjects } from './components'
 
-function App() {
+export const  HomePage:React.FC = () => {
   return (
     <div>
-      <Header/>
-      <h1>welcome to my portfolio</h1>
-      <h2>Project Links</h2>
-      <PortfolioProjects/>
-      <AboutMe />
-      <Footer/>
+      <h3>home page</h3>
     </div>
   )
 }
 
-export default App
+export const AboutMePage: React.FC = () => {
+  return (
+    <div className="about-me">
+      <h3>About Me</h3>
+      <div>
+        <AboutMe/>
+      </div>
+    </div>
+  )
+}
+
+export const BlogPage: React.FC = () => {
+  return (
+    <div>
+      <h3>Blog</h3>
+    </div>
+  )
+}
+
+export const ProjectsPage: React.FC = () => {
+  return (
+    <div>
+      <h3>Projects</h3>
+      <PortfolioProjects/>
+    </div>
+  )
+}
+

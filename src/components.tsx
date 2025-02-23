@@ -10,6 +10,7 @@ import {
 	SiAmazonwebservices,
 } from "react-icons/si"
 import Markdown from "react-markdown"
+import { Link } from "react-router"
 
 export const iconMap = {
 	java: FaJava,
@@ -144,8 +145,7 @@ export function Footer() {
 
 export const PortfolioProjects = () => {
 	return (
-		<div className="portfolio-projects">
-			<h3>Projects</h3>
+		<div className="portfolio-projects-container">
 			<ul
 				className="noBullets"
 				id="portfolio-projects"
@@ -234,17 +234,20 @@ export const Header: React.FC = () => {
 			<nav>
 				<ul className="noBullets footer-links">
 					<li>
-						<p>about me</p>
+						<Link to="/">home</Link>
 					</li>
 					<li>
-						<p>projects</p>
+						<Link to="/aboutme">about me</Link>
 					</li>
 					<li>
-						<p>blog</p>
+						<Link to="/blog">blog</Link>
+					</li>
+					<li>
+						<Link to="/projects">projects</Link>
 					</li>
 				</ul>
 			</nav>
-			<HeaderShot src={"./public/headshot.jpg"} />
+			<HeaderShot src={"/headshot.jpg"} />
 		</div>
 		
 	)
