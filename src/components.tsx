@@ -119,13 +119,12 @@ const froggerImitation: Project = {
 
 const projects: Project[] = [memoryGame, froggerImitation]
 
-export function PopulatePortfolioLinks() {
+export function Footer() {
 	return (
 		<div className="portfolio-links">
-			<h3>Portfolio Links</h3>
 			<ul
 				className="noBullets"
-				id="portfolio-links"
+				id="footer-links"
 			>
 				{links.map((link) => (
 					<li key={link.id}>
@@ -206,4 +205,47 @@ export const AboutMe = () => {
 	)
 }
 
+interface HeaderProps {
+	name?: string
+	src: string
+	alt?: string
+	size?: string
+}
+
 //https://www.npmjs.com/package/react-markdown?activeTab=readme   https://github.com/remarkjs/react-markdown
+
+export const HeaderShot: React.FC<HeaderProps> = ({ src, alt, size }) => {
+	return (
+		<div className="headshot-container">
+			<img
+				className="headshot"
+				src={src}
+				alt={alt}
+				width={size}
+				height={size}
+			/>
+		</div>
+	)
+}
+
+export const Header: React.FC = () => {
+	return (
+		<div className="header-container">
+			<nav>
+				<ul className="noBullets footer-links">
+					<li>
+						<p>about me</p>
+					</li>
+					<li>
+						<p>projects</p>
+					</li>
+					<li>
+						<p>blog</p>
+					</li>
+				</ul>
+			</nav>
+			<HeaderShot src={"./public/headshot.jpg"} />
+		</div>
+		
+	)
+}
