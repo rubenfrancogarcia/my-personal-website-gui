@@ -122,7 +122,7 @@ const projects: Project[] = [memoryGame, froggerImitation]
 
 export function Footer() {
 	return (
-		<div className="portfolio-links">
+		<div className="footer-container">
 			<ul
 				className="noBullets"
 				id="footer-links"
@@ -167,13 +167,16 @@ export const PortfolioProjects = () => {
 		</div>
 	)
 }
+interface MarkdownLoaderProps {
+	path: string
+}
 
-export const MarkdownLoader: React.FC = () => {
+export const MarkdownLoader: React.FC<MarkdownLoaderProps> = ({ path }) => {
 	const [markdown, setMarkdown] = React.useState<string | null>("Loading...")
 	useEffect(() => {
 		const loadMarkdown = async () => {
 			try {
-				const response = await fetch("/aboutme.md")
+				const response = await fetch(path)
 				const text = await response.text()
 				setMarkdown(text)
 			} catch (error) {
@@ -185,7 +188,7 @@ export const MarkdownLoader: React.FC = () => {
 	return (
 		<pre
 			style={{
-				maxWidth: "100vw",
+				maxWidth: "75vw",
 				whiteSpace: "pre-wrap",
 			}}
 		>
@@ -197,10 +200,7 @@ export const MarkdownLoader: React.FC = () => {
 export const AboutMe = () => {
 	return (
 		<div className="about-me">
-			<h3>About Me</h3>
-			<div>
-				<MarkdownLoader />
-			</div>
+			<MarkdownLoader path="./aboutme.md" />
 		</div>
 	)
 }
@@ -232,23 +232,26 @@ export const Header: React.FC = () => {
 	return (
 		<div className="header-container">
 			<nav>
-				<ul className="noBullets footer-links">
+				<ul className="noBullets nav-links">
 					<li>
 						<Link to="/">home</Link>
 					</li>
 					<li>
 						<Link to="/aboutme">about me</Link>
 					</li>
+					{/*
 					<li>
 						<Link to="/blog">blog</Link>
-					</li>
+					</li>*/}
 					<li>
 						<Link to="/projects">projects</Link>
 					</li>
 				</ul>
 			</nav>
+			<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+			<span style={{color: "white", textSizeAdjust: "auto", paddingRight: "12px"}}><h1>Ruben Garcia</h1></span>
 			<HeaderShot src={"/headshot.jpg"} />
+			</div>
 		</div>
-		
 	)
 }
