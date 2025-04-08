@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 html, body, #root {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+}
+
+html, body {
+  font-family: 'Open Sans', sans-serif;
+  color: #1a1a1a;
+  background-color: #f0f0f0;
+  line-height: 1.8;
+  font-size: 16px;
 }
 
 * {
@@ -21,6 +29,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
+  padding: 2em;
 }
 
 footer {
@@ -82,7 +92,7 @@ ul {
 
 .headshot-container {
   display: flex;
-  max-width: 100px;
+  max-width: 200px;
   padding-right: 2em;
   justify-content: center;
   align-items: right;
@@ -132,4 +142,35 @@ ul {
 }
 .footer-container a:focus{
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: 12px; 
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  .header-container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .footer-container {
+    padding: 1em 0; 
+  }
+
+  .headshot-container {
+    max-width: 80px; 
+    padding-right: 0; 
+  }
+  .headshot {
+    width: 50px;
+    height: auto;
+    border-radius: 50%; /* Ensures circular shape */
+    object-fit: cover; /* Crops and centers */
+  }
 }

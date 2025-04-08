@@ -160,7 +160,7 @@ export const PortfolioProjects = () => {
 							href={project.link}
 							target="_blank"
 							rel="noopener noreferrer"
-						>{project.name}</a></p>
+						><u>{project.name}</u></a></p>
 				</h4>
 						<p>{project.description}</p>
 						<ul className="noBullets">
@@ -197,7 +197,7 @@ export const MarkdownLoader: React.FC<MarkdownLoaderProps> = ({ path }) => {
 	return (
 		<pre
 			style={{
-				maxWidth: "75vw",
+				margin: "2rem",
 				whiteSpace: "pre-wrap",
 			}}
 		>
