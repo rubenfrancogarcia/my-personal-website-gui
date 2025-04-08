@@ -1,15 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
-html, body, #root {
-  margin: 0;
-  padding: 0;
-}
 
 html, body {
   font-family: 'Open Sans', sans-serif;
   color: #1a1a1a;
   background-color: #f0f0f0;
-  line-height: 1.8;
+  line-height: 2.0;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -144,23 +142,85 @@ ul {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media (max-width: 900px) and (min-width: 501px) {
+  h1 {
+    font-size: 16px;
+  }
+  main {
+    padding: 1em; 
+    font-size: 14px; 
+    line-height: 1.5; 
+  }
+  .header-container {
+    flex-direction: column; 
+    align-items: center; 
+    padding: 1em; 
+  }
+
+  .footer-container {
+    flex-direction: column; 
+    align-items: center; 
+    padding: 1em; 
+  }
+
+  .footer-container a {
+    font-size: 1em; 
+  }
+
+  .headshot-container {
+    max-width: 125px; 
+    padding-right: 0; 
+  }
+  .headshot {
+    width: 125px;
+    height: auto;
+    border-radius: 50%; /* Ensures circular shape */
+    object-fit: cover; /* Crops and centers */
+  }
+  
+}
+
 @media (max-width: 500px) {
-  body {
+  .header-container {
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+    background-color: #333; 
+    padding: 1em; 
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .footer-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%; 
+    z-index: 1000; 
+    background-color: #333;
+    padding: 1em; 
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .footer-container a {
+    font-size: 0.8em; 
+  }
+  .footer-container a:hover {
+    font-size: 1em; 
+  }
+
+  main {
+    margin-top: 80px; 
+    margin-bottom: 80px;
     font-size: 12px; 
     line-height: 1.2;
   }
 
   h1 {
-    font-size: 16px;
-  }
-
-  .header-container {
-    flex-direction: column; 
-    align-items: center; 
-  }
-
-  .footer-container {
-    padding: 1em 0; 
+    font-size: 14px;
   }
 
   .headshot-container {

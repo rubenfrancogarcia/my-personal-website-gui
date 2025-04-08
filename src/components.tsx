@@ -124,7 +124,6 @@ const projects: Project[] = [memoryGame, froggerImitation,myReads]
 
 export function Footer() {
 	return (
-		<div >
 			<ul
 				className="footer-container"
 				id="footer-links"
@@ -141,7 +140,6 @@ export function Footer() {
 					</li>
 				))}
 			</ul>
-		</div>
 	)
 }
 
