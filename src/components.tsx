@@ -16,6 +16,7 @@ export const iconMap = {
 	java: FaJava,
 	spring: SiSpring,
 	javascript: SiJavascript,
+	react: SiReact
 } as const
 
 interface TechIconProps {
@@ -42,7 +43,7 @@ interface Link {
 }
 
 interface Tech {
-	name: string
+	name: keyof typeof iconMap
 	icon: React.FC
 }
 
@@ -60,13 +61,7 @@ const link2 = {
 
 const link3 = {
 	id: 3,
-	name: "leetcode profile",
-	url: "https://leetcode.com/u/rubens1729/",
-}
-
-const link4 = {
-	id: 4,
-	name: "bluesky profile",
+	name: "Leetcode",
 	url: "https://leetcode.com/u/rubens1729/",
 }
 
@@ -94,7 +89,7 @@ const calendy = {
 	url: "https://www.cccd.edu/",
 }
 
-const links: Link[] = [link1, link2, link3, link4]
+const links: Link[] = [link1, link2, link3]
 
 interface Project {
 	name: string
@@ -106,25 +101,32 @@ interface Project {
 
 const memoryGame: Project = {
 	name: "Memory Game",
-	description: "A simple memory game built with React",
-	link: "",
+	description: "Match pairs of cards where user is scored based on time and moves",
+	link: "https://memory-game-js12.netlify.app/",
 	techStack: [{ name: "javascript", icon: SiJavascript }],
 }
 
 const froggerImitation: Project = {
 	name: "Frogger Imitation",
-	description: "A simple imitation of the classic game Frogger",
-	link: "",
+	description: "A simple imitation of the classic game Frogger. Reach the other side of the road while avoiding cars and obstacles.",
+	link: "https://classic-arcade-game-rg.netlify.app/",
 	techStack: [{ name: "javascript", icon: SiJavascript }],
 }
 
-const projects: Project[] = [memoryGame, froggerImitation]
+const myReads: Project = {
+	name: "My Reads",
+	description: "A book tracking app that allows users to search for books and categorize them into three shelves: currently reading, want to read, and read.",
+	link: "https://my-reacts-app.netlify.app/",
+	techStack: [{ name: "react", icon: SiReact }],
+}
+
+const projects: Project[] = [memoryGame, froggerImitation,myReads]
 
 export function Footer() {
 	return (
-		<div className="footer-container">
+		<div >
 			<ul
-				className="noBullets"
+				className="footer-container"
 				id="footer-links"
 			>
 				{links.map((link) => (
@@ -146,13 +148,20 @@ export function Footer() {
 export const PortfolioProjects = () => {
 	return (
 		<div className="portfolio-projects-container">
+			<p> Here are a few of old projects of mine. Stay tuned for updates. </p>
 			<ul
 				className="noBullets"
 				id="portfolio-projects"
 			>
 				{projects.map((project) => (
 					<li key={project.name}>
-						<h4>{project.name}</h4>
+						<h4>
+							<p><a
+							href={project.link}
+							target="_blank"
+							rel="noopener noreferrer"
+						>{project.name}</a></p>
+				</h4>
 						<p>{project.description}</p>
 						<ul className="noBullets">
 							{project.techStack.map((tech) => (
@@ -230,28 +239,9 @@ export const HeaderShot: React.FC<HeaderProps> = ({ src, alt, size }) => {
 
 export const Header: React.FC = () => {
 	return (
-		<div className="header-container">
-			<nav>
-				<ul className="noBullets nav-links">
-					<li>
-						<Link to="/">home</Link>
-					</li>
-					<li>
-						<Link to="/aboutme">about me</Link>
-					</li>
-					{/*
-					<li>
-						<Link to="/blog">blog</Link>
-					</li>*/}
-					<li>
-						<Link to="/projects">projects</Link>
-					</li>
-				</ul>
-			</nav>
-			<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-			<span style={{color: "white", textSizeAdjust: "auto", paddingRight: "12px"}}><h1>Ruben Garcia</h1></span>
+		<div className="header-container" style={{display: "flex", flexDirection: "row", alignItems:"center"}}>
+			<span style={{color: "white"}}><h1>Ruben Garcia</h1></span>
 			<HeaderShot src={"/headshot.jpg"} />
-			</div>
 		</div>
 	)
 }

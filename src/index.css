@@ -1,67 +1,43 @@
 html, body, #root {
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
-/* Ensure the main container takes full height */
+* {
+  box-sizing: border-box;
+}
+
+
 .App-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
 }
 
-/* Push footer to the bottom */
+
 main {
-  flex: 1; /* Makes main expand to take remaining space */
+  flex: 1; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
-/* Ensure footer spans the full width */
 footer {
-  background-color: #333; /* Example color */
+  background-color: #333; 
   color: white;
   text-align: center;
-  padding: 10px;
-  width: 100%;
   position: relative;
   bottom: 0;
 }
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0px auto;
-  padding: 0;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: stretch;
-  min-height: 100vh;
-}
-
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+    text-decoration: none;
+  color: inherit;
 }
 a:hover {
-  color: #535bf2;
+text-decoration: none;
+color: inherit;
 }
 
 h1 {
@@ -72,7 +48,6 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -101,10 +76,8 @@ button:focus-visible {
   }
 }
 
-.noBullets {
+ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
 .headshot-container {
@@ -123,108 +96,40 @@ button:focus-visible {
   border-radius: 50%; /* Ensures circular shape */
   object-fit: cover; /* Crops and centers */
 }
-
-/* Make it responsive */
-@media (max-width: 768px) {
-  .headshot {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .headshot {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-
-
-
-
-
 .header-container{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 100%;
-  max-width: 100%;
-  width: 100%;
-  padding: 1em;
   background-color: #333;
+  padding: 2em;
 }
 
 .footer-container{
   display: flex;
-  justify-content:space-around;
+  justify-content:space-evenly;
+  flex-direction: row;
   align-items: center;
-  min-width: 100%;
   max-width: 100%;
-  width: 100%;
   position: relative;
   bottom: 0;
   padding: 1em;
   background-color: #333;
 }
-
-nav {
-  padding: 10px;
-}
-
-.nav-links {
-  font-size: 16px;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-li {
-  display: inline;
-}
-
-a {
+.footer-container a{
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 1.2em;
 }
 
-a:hover {
-  text-decoration: underline;
+.footer-container a:hover{
+  color: #747bff;
+}
+.footer-container a:visited{
+  color: white;
+}
+.footer-container a:active{
+  color: #747bff;
+}
+.footer-container a:focus{
+  outline: 4px auto -webkit-focus-ring-color;
 }
